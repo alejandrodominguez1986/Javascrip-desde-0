@@ -14,7 +14,7 @@ let joselynnota2 = (10);
 let joselynnota3 = (8);
 
 
-let promedioale = ((alenota1 + alenota2 + alenota3  ) / 3 ;
+let promedioale = (alenota1 + alenota2 + alenota3  ) / 3 ;
 let promediojosey = (joseynota1 + joseynota2 + joseynota3  ) / 3;
 let promediojoselyn = (joselynnota1 + joselynnota2 + joselynnota3  ) / 3;
 
