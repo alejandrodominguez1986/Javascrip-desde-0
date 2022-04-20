@@ -1,41 +1,43 @@
-let alenota1 = parseFloat (prompt("ingrese la nota final de ale"));
+let alenota1 = (8);
 let alenota2 = (7);
-let alenota3 = (8);
+let alenota3 = parseFloat (prompt("ingrese la nota final de ale"));
 
-
-
-let joseynota1 = parseFloat (prompt("ingrese la nota final de josey "));
+let joseynota1 = (7);
 let joseynota2 = (9);
-let joseynota3 = (7);
+let joseynota3 = parseFloat (prompt("ingrese la nota final de josey "));
 
-
-let joselynnota1 = parseFloat (prompt("ingrese la nota final de joselyn "));
+let joselynnota1 = (8);
 let joselynnota2 = (10);
-let joselynnota3 = (8);
+let joselynnota3 = parseFloat (prompt("ingrese la nota final de joselyn "));
 
 
-let promedioale = (alenota1 + alenota2 + alenota3  ) / 3 ;
-let promediojosey = (joseynota1 + joseynota2 + joseynota3  ) / 3;
-let promediojoselyn = (joselynnota1 + joselynnota2 + joselynnota3  ) / 3;
-
-
-if(promedioale < 6)  {
-    alert ("ALE ESTAS REPROBADO CON :" + promedioale)
-}
-else {
-    alert ("ALE ESTAS APROBADO CON :" + promedioale)
+function calcularPromedio ( alenota1, alenota2, alenota3) {
+const promedio = ( alenota1, alenota2, alenota3) /3;
+return promedio;
 }
 
-if(promediojosey < 6) {
-    alert ("JOSEY ESTAS REPROBADO CON :" + promediojosey)
-}
-else {
-    alert (" JOSEY ESTAS APROBADO CON :" + promediojosey)
+function calcularPromedio ( joselynnota1, joselynnota2, joselynnota3 ) {
+const promedio = ( joselynnota1, joselynnota2, joselynnota3 ) /3;
+return promedio;
 }
 
-if(promediojoselyn < 6) {
-    alert ("JOSELYN ESTAS REPROBADO CON :" + promediojoselyn)
+function calcularPromedio ( joseynota1, joseynota2, joseynota3 ) {
+const promedio = ( joseynota1, joseynota2, joseynota3 ) /3;
+return promedio;
 }
-else {
-    alert (" JOSELYN ESTAS APROBADO CON :" + promediojoselyn)
+
+function isAlumnoAprobado (promedio) {
+if( promedio > 6){
+    return "aprobado";
 }
+return "desaprobado";
+}
+
+const promedioAle = calcularPromedio ( alenota1, alenota2, alenota3);
+const promediojoselyn = calcularPromedio ( joselynnota1, joselynnota2, joselynnota3 );
+const promediojosey = calcularPromedio ( joseynota1, joseynota2, joseynota3 );
+
+
+alert (" ale esta" + isAlumnoAprobado (promedioAle) + "con nota" + promedioAle);
+alert (" joselyn esta" + isAlumnoAprobado (promediojoselyn) + "con nota" + promediojoselyn);
+alert (" josey esta" + isAlumnoAprobado (promediojosey) + "con nota" + promediojosey);
