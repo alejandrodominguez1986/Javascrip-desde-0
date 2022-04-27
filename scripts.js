@@ -153,3 +153,12 @@ console.log(losPirela)
 let losTorres =  [hombre3, mujer3]  
 
 console.log(losTorres)
+
+let familiaPeluche = losDom.concat (losPirela, losTorres)
+console.log(familiaPeluche)
+
+for(let matrimonio of familiaPeluche){
+    for(let propiedad in matrimonio){
+        console.log(matrimonio [propiedad])
+    }
+}
