@@ -1,164 +1,170 @@
-/*
-let alenota1 = 7;
-let alenota2 = 8;
-let alenota3 = parseFloat (prompt("ingrese la nota final de ale"));
+let salsaElegida 
+let prodElegido
 
-let joycenota1 = 7;
-let joycenota2 = 10;
-let joycenota3 = parseFloat (prompt("ingrese la nota final de joyce "));
-
-let joselynnota1 = 10;
-let joselynnota2 = 10;
-let joselynnota3 = parseFloat (prompt("ingrese la nota final de joselyn "));
-
-let jaironota1 = 8;
-let jaironota2 = 9;
-let jaironota3 = parseFloat (prompt("ingrese la nota final de jairo "));
-
-
-function calcularPromedio ( nota1, nota2, nota3) {
-    const promedio = ( nota1 + nota2 + nota3) /3;
-    return promedio;
-}
-
-function isAlumnoAprobado (promedio) {
-    if( promedio > 6){
-    return  " aprobado ";
-}
-    return " desaprobado ";
-}
-
-const promedioAle = calcularPromedio ( alenota1, alenota2, alenota3);
-const promediojoselyn = calcularPromedio ( joselynnota1, joselynnota2, joselynnota3 );
-const promediojoyce = calcularPromedio ( joycenota1, joycenota2, joycenota3 );
-const promediojairo = calcularPromedio ( jaironota1, jaironota2, jaironota3 );
-
-
-alert (" ale esta " +  isAlumnoAprobado (promedioAle)+ " con nota " +  promedioAle);
-alert (" joselyn esta " + isAlumnoAprobado (promediojoselyn) +  " con nota" + " " + promediojoselyn);
-alert (" joyce esta " + isAlumnoAprobado (promediojoyce) +  " con nota" + " " + promediojoyce);
-alert (" jairo esta " + isAlumnoAprobado (promediojairo) +  " con nota" + " " + promediojairo);
-*/
-// COMENTO ESTO POR QUE YA LO REVISASTE 
-
-
-
-
-
-
-//declarando mis arrays
-
-let familiaPirela = ["Joselyn", "Joyce", "Jairo", "Ana", "Franklin", "Fabiana", "Orianna", "Enrrique" ]
-
-console.log (familiaPirela)
-
-let familiaDominguez = ["Ruben","Maria", "Fede", "Cele", "Nico", "Delfina", "Bobby", "Luna", "Ale" ]
-
-console.log (familiaDominguez)
-
-
-//uso del for recorrido del arrays y el uso de la propiedad  length
-
-for (let i = 0 ; i < familiaPirela.length; i++){
-    if(i == 4 ){
-        break
-    }
-    console.log (familiaPirela[i])
-}
-
-for (let i = 0 ; i < familiaDominguez.length; i++){
-    if(i == 4 ){
-        continue
-    }
-    console.log (familiaDominguez[i])
-}
-
-
-//usando la propiedad  push
-
-familiaPirela.push("MAMA CHOSHY")
-
-console.log (familiaPirela)
-
-familiaDominguez.push("Gabriela")
-
-console.log (familiaDominguez)
-
-
-// usando la propiedad  join
-console.log(familiaPirela.join("/"))
-
-console.log(familiaDominguez.join("-"))
-
-//concatenado mis arrays
-
-let losCampanelli = familiaDominguez.concat(familiaPirela)
-console.log(losCampanelli)
-
-// usando la propiedad slice y hacer nuestra copia 
-
-let familiaJoselyn = losCampanelli.slice(10,19)
-console.log(familiaJoselyn)
-
-let familiaAle = losCampanelli.slice(0,10)
-console.log(familiaAle)
-
-
-//utilizando indexof
-
-let achicamosLaFamilia = prompt("a quien sacamos hoy \n Ruben \n Maria \n Fede \n Cele \n Nico \n Delfina \n Bobby \n Luna \n Ale \n Gabriela \n Joselyn \n Joyce \n Jairo \n Ana \n Franklin \n Fabiana \n Orianna \n Enrrique \n MAMA DE CHOSHY")
-
-let estaDeSuerte = losCampanelli.indexOf(achicamosLaFamilia)
-
-if(estaDeSuerte != -1){
-    losCampanelli.splice(estaDeSuerte,1)
-} else{
-    alert (" no es de esta familia ")
-}
-
-console.log(losCampanelli)
-
-
-//propiedad includes 
-
-console.log(losCampanelli.includes("martin"))
-console.log(familiaDominguez.includes("joselyn"))
-console.log(familiaPirela.includes("ale"))
-
-
-class matrimonio{
-    constructor(nombre , apellido, nacionalidad, edad){
+class salsasMadres{
+    constructor(id, nombre, tipo, dificultad, maridaje, precio){
+        this.id = id
         this.nombre = nombre;
-        this.apellido = apellido;
-        this.nacionalidad = nacionalidad;
-        this.edad = edad;
+        this.tipo = tipo;
+        this.dificultad = dificultad;
+        this.maridaje = maridaje;
+        this.precio = precio
     }
 }
 
-const hombre1 = new matrimonio ("Alejandro", "Dominguez", "Argentino", 36)
-const mujer1 = new matrimonio ("Joselyn", "Pirela", "Venezolana", 30)
-const hombre2 = new matrimonio ("jairo", "Pirela", "Venezolano", 40)
-const mujer2 = new matrimonio ( "Ana", "Cardenas", "Venezolana", 38)
-const hombre3 = new matrimonio ("Franklin", "Torres", "Venezolano", 41)
-const mujer3 = new matrimonio ( "joyce", "Pirela", "Venezolana", 38)
-
-let losDom = [ hombre1, mujer1]
-
-console.log(losDom)
-
-let losPirela =  [hombre2, mujer2]
-
-console.log(losPirela)
-
-let losTorres =  [hombre3, mujer3]  
-
-console.log(losTorres)
-
-let familiaPeluche = losDom.concat (losPirela, losTorres)
-console.log(familiaPeluche)
-
-for(let matrimonio of familiaPeluche){
-    for(let propiedad in matrimonio){
-        console.log(matrimonio [propiedad])
+class producto {
+    constructor(id,ingrediente,tipo, tiempo, presentacion, valor){
+        this.id = id
+        this.ingrediente = ingrediente;
+        this.tipo = tipo;
+        this.tiempo = tiempo;
+        this.presentacion = presentacion;
+        this.valor = valor
     }
 }
+
+const bechamel = new salsasMadres(1,"bechamel","leche", "baja", "fideos",50);
+const parisienne = new salsasMadres(2,"parisienne", "crema", "medio", "pollo", 70);
+const boloñesa = new salsasMadres(3,"boloñesa", "carne", "medio", "spaguetti", 90);
+const limon = new salsasMadres(4,"limon", "caldo", "medio", "pescados", 30);
+const holandesa = new salsasMadres(5,"holandesa", "huevo", "dificil", "huevos", 120);
+const pomodoro = new salsasMadres(6,"pomodoro", "tomate", "facil", "pastas", 80);
+
+
+const spaguetti = new producto(1,"spaguetti","seco", 13 , "bolsa", 20);
+const sorrentinos = new producto(2,"sorrentinos","fresco", 3 , "caja", 110);
+const salmon = new producto(3,"salmon","fresco", 25 , "penca", 200);
+const lomo = new producto(4,"lomo","fresco", 20 , "bifes", 180);
+const pechuga = new producto(5,"pechuga","fresco", 25 , "pieza", 70);
+const huevo = new producto(6,"huevo","fresco", 5 , "unidad", 20);
+
+const salsa = [bechamel , parisienne, boloñesa, limon, holandesa, pomodoro];
+const productos = [ spaguetti, sorrentinos, salmon, lomo, pechuga, huevo];
+
+console.log (salsa);
+console.log (productos);
+
+const elCarrito = []  
+
+const card = document.querySelector(".card");
+
+const saludar = () => {
+    alert("Bienvenido a Fatto in casa cocina de autor");
+    let nombre = prompt("Ingrese su nombre: ");
+    while (!isNaN(nombre)) {
+      nombre = prompt("Ingrese su nombre");
+    }
+    card.innerHTML = `<h1>Bienvenido ${nombre.toUpperCase()}</h1>`;
+  };
+
+ const eligeUno = () => {
+    let platoE = "";
+    for (const alimento of salsa) {
+        platoE += `${alimento.id}) ${alimento.nombre}\n`;
+    }
+    let platoAe = parseInt(prompt(`Que salsa elige ? :\n${platoE} `));
+
+  while (platoAe > 6 || platoAe < 1 || isNaN(platoAe)) {
+    platoAe = parseInt(prompt(`Que salsa elige ? :\n${platoE} `));
+  }
+
+  return platoAe;
+    }
+
+const salsaLlevar = () => {
+        let buscarSalsa = salsa.find( (element) => element.id === salsaElegida );
+        
+        let existencia = elCarrito.some((element) => element.id === salsaElegida);
+
+        if (existencia){
+            buscarSalsa.cantidad++;
+        }else {
+            buscarSalsa.cantidad = 1;  
+            elCarrito.push(buscarSalsa);
+        }       
+
+        const continuar = confirm ("algo mas para elegir");
+
+        if(continuar){
+          salsaElegida = eligeUno();
+          salsaLlevar();
+        }
+      };
+
+
+const elecciones = () =>{
+    const divCaja = document.createElement("div");
+    divCaja.className = "card2";
+    card.appendChild(divCaja);
+
+    elCarrito.forEach(element=>{
+        divCaja.innerHTML += `<div class= card2>
+        <p>${element.nombre}</p>
+        <p>${element.tipo}</p>
+        <h3> Subtotal: $${element.precio * element.cantidad}</h3>
+        <p>${element.cantidad}</p>
+        </div>`
+    })
+};
+
+
+
+ const eligeProd = () => {
+    let prodE = "";
+    for (const producto of productos) {
+        prodE += `${producto.id}) ${producto.ingrediente}\n`;
+    }
+    let prodAe = parseInt(prompt(`Que salsa elige ? :\n${prodE} `));
+
+  while (prodAe > 6 || prodAe < 1 || isNaN(prodAe)) {
+    prodAe = parseInt(prompt(`Que salsa elige ? :\n${prodE} `));
+  }
+
+  return prodAe;
+    }
+
+const prodLlevar = () => {
+        let buscarProd = productos.find( (element) => element.id === prodElegido );
+        
+        let deposito = elCarrito.some((element) => element.id === prodElegido);
+
+        if (deposito){
+            buscarProd.cantidades ++;
+        }else {
+            buscarProd.cantidades = 1;  
+            elCarrito.push(buscarProd);
+        }       
+
+        const continuar = confirm ("algo mas para elegir");
+
+        if(continuar){
+          prodElegido = eligeProd();
+          prodLlevar();
+        }
+      };
+
+
+const eleccion = () =>{
+    const divCaja = document.createElement("div");
+    divCaja.className = "card3";
+    card.appendChild(divCaja);
+
+    elCarrito.forEach(element=>{
+        divCaja.innerHTML += `<div class= card3>
+        <p>${element.ingrediente}</p>
+        <p>${element.tipo}</p>
+        <h3> Subtotal: $${element.valor * element.cantidad}</h3>
+        <p>${element.cantidades}</p>
+        </div>`
+    })
+};
+    
+
+
+saludar();
+salsaElegida = eligeUno();
+prodElegido = eligeProd();
+salsaLlevar();
+prodLlevar();
+elecciones();
+eleccion();
