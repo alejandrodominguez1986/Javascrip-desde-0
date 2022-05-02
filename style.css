@@ -1,7 +1,14 @@
 .card2{
     border: 2px solid rgb(91, 236, 7);
-    border-radius: 10px;
     display:inline-block;
     text-align:center ;
+    background-color: bisque;
+   
+}
+.card3{
+    border: 2px solid rgb(0, 0, 0);
+    display: inline-block;
+    text-align:center ;
+    background-color: rgb(43, 107, 226);
    
 }

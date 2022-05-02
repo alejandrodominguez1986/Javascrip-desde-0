@@ -13,13 +13,13 @@ class salsasMadres{
 }
 
 class producto {
-    constructor(id,ingrediente,tipo, tiempo, presentacion, valor){
+    constructor(id,ingrediente, base, tiempo, presentacion, costo){
         this.id = id
         this.ingrediente = ingrediente;
-        this.tipo = tipo;
+        this.base = base;
         this.tiempo = tiempo;
         this.presentacion = presentacion;
-        this.valor = valor
+        this.costo = costo
     }
 }
 
@@ -45,6 +45,7 @@ console.log (salsa);
 console.log (productos);
 
 const elCarrito = []  
+const elCarrito2 = [  ]
 
 const card = document.querySelector(".card");
 
@@ -83,7 +84,7 @@ const salsaLlevar = () => {
             elCarrito.push(buscarSalsa);
         }       
 
-        const continuar = confirm ("algo mas para elegir");
+        const continuar = confirm ("Queres agregar otra salsa a tu compra");
 
         if(continuar){
           salsaElegida = eligeUno();
@@ -97,7 +98,7 @@ const elecciones = () =>{
     divCaja.className = "card2";
     card.appendChild(divCaja);
 
-    elCarrito.forEach(element=>{
+    elCarrito.forEach((element)=>{
         divCaja.innerHTML += `<div class= card2>
         <p>${element.nombre}</p>
         <p>${element.tipo}</p>
@@ -114,10 +115,10 @@ const elecciones = () =>{
     for (const producto of productos) {
         prodE += `${producto.id}) ${producto.ingrediente}\n`;
     }
-    let prodAe = parseInt(prompt(`Que salsa elige ? :\n${prodE} `));
+    let prodAe = parseInt(prompt(`Elige un producto  :\n${prodE} `));
 
   while (prodAe > 6 || prodAe < 1 || isNaN(prodAe)) {
-    prodAe = parseInt(prompt(`Que salsa elige ? :\n${prodE} `));
+    prodAe = parseInt(prompt(`Elige un producto  :\n${prodE} `));
   }
 
   return prodAe;
@@ -126,16 +127,16 @@ const elecciones = () =>{
 const prodLlevar = () => {
         let buscarProd = productos.find( (element) => element.id === prodElegido );
         
-        let deposito = elCarrito.some((element) => element.id === prodElegido);
+        let deposito = elCarrito2.some((element) => element.id === prodElegido);
 
         if (deposito){
             buscarProd.cantidades ++;
         }else {
             buscarProd.cantidades = 1;  
-            elCarrito.push(buscarProd);
+            elCarrito2.push(buscarProd);
         }       
 
-        const continuar = confirm ("algo mas para elegir");
+        const continuar = confirm ("Queres agregar otro producto a tu compra ");
 
         if(continuar){
           prodElegido = eligeProd();
@@ -143,17 +144,19 @@ const prodLlevar = () => {
         }
       };
 
+let cantidades 
 
 const eleccion = () =>{
-    const divCaja = document.createElement("div");
-    divCaja.className = "card3";
-    card.appendChild(divCaja);
+    const divCajas = document.createElement("div");
+    divCajas.className = "card3";
+    card.appendChild(divCajas);
 
-    elCarrito.forEach(element=>{
-        divCaja.innerHTML += `<div class= card3>
+    elCarrito2.forEach((element)=>{
+        divCajas.innerHTML += `<div class= card3>
         <p>${element.ingrediente}</p>
-        <p>${element.tipo}</p>
-        <h3> Subtotal: $${element.valor * element.cantidad}</h3>
+        <p>${element.base}</p>
+        <p>${element.costo}</p>
+        <h3> Subtotal: $${element.costo * element.cantidades}</h3>
         <p>${element.cantidades}</p>
         </div>`
     })
