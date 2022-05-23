@@ -1,4 +1,3 @@
-
 class Producto {
   constructor(id, tipo, nombre, marca, utilidad, precio) {
     this.id = id;
@@ -6,38 +5,34 @@ class Producto {
     this.marca = marca;
     this.nombre = nombre;
     this.utilidad = utilidad;
-    this.precio = precio
-
+    this.precio = precio;
   }
 }
 
-
 const productosDisponibles = [
-  new Producto(0, "cuchillo", "sierra", "boker", "panaderia", 1000),
-  new Producto(1, "cuchillo", "deshuesador", "arbolito", "carnes", 1500),
-  new Producto(2, "cuchillo", "santoku", "boker", "pescados", 1900),
-  new Producto(3, "cuchillo", "Nakiri", "arbolito", "verduras", 2000),
-  new Producto(4, "cuchillo", "fileteador", "universal", "filetear", 1500),
-  new Producto(5, "cuchillo", "oficio", "boker", "oficio", 100),
-  new Producto(6, "cuchillo", "abreostras", "universal", "ostras", 500),
-  new Producto(7, "utensillo", "espatula", "arbolito", "pasteleria", 1000),
-  new Producto(8, "utensillo", "miserable", "boker", "pasteleria", 900),
-  new Producto(9, "utensillo", "batidor", "boker", "pasteria", 1000),
-  new Producto(10, "utensillo", "cornet", "universal", "panaderia", 1500)
-]
+  new Producto(0, "Cuchillo", "Sierra", "Boker", "Panaderia", 1000),
+  new Producto(1, "Cuchillo", "Deshuesador", "Arbolito", "Carnes", 1500),
+  new Producto(2, "Cuchillo", "Santoku", "Boker", "Pescados", 1900),
+  new Producto(3, "Cuchillo", "Nakiri", "Arbolito", "Verduras", 2000),
+  new Producto(4, "Cuchillo", "Fileteador", "Universal", "Filetear", 1500),
+  new Producto(5, "Cuchillo", "Oficio", "Boker", "Oficio", 100),
+  new Producto(6, "Cuchillo", "Abreostras", "Universal", "Ostras", 500),
+  new Producto(7, "Utensillo", "Espatula", "Arbolito", "Pasteleria", 1000),
+  new Producto(8, "Utensillo", "Miserable", "Boker", "Pasteleria", 900),
+  new Producto(9, "Utensillo", "Batidor", "Boker", "Pasteleria", 1000),
+  new Producto(10, "Utensillo", "Cornet", "Universal", "Panaderia", 1500),
+];
 
-let carritoCompra = []
+let carritoCompra = [];
 
-let inputTextoUtensilio = document.getElementById("inputDeUtensilio")
-let almacenDeProductosDiv = document.getElementById("almacenDeProductos")
-
-let offcanvasRight = document.getElementById("offcanvasRight")
-
+let inputTextoUtensilio = document.getElementById("inputDeUtensilio");
+let almacenDeProductosDiv = document.getElementById("almacenDeProductos");
+let offcanvasRight = document.getElementById("offcanvasRight");
 
 
 const mostrarProducutos = () => {
-  productosDisponibles.forEach(producto => {
-
+  almacenDeProductosDiv.innerHTML = "";
+  productosDisponibles.forEach((producto) => {
     almacenDeProductosDiv.innerHTML += `
             <div id="${producto.id}" class="card " style="width: 18rem;">
               <div class="card-body ">
@@ -50,21 +45,19 @@ const mostrarProducutos = () => {
                     <button onclick= "removerItemCarrito(${producto.id})" type="button" id="botonEliminar${producto.id}" >Eliminas del carrito </button>
                 </div> 
             </div>
-              `
-  })
-}
+              `;
+  });
+  
+};
 
-
-
-
-inputTextoUtensilio.addEventListener('change', () => {
-
-  let buscar = inputTextoUtensilio.value.toLowerCase()
-
-  let prodABuscar = productosDisponibles.filter(producto => producto.tipo.includes(buscar))
-  almacenDeProductosDiv.innerHTML = ""
-  console.log(prodABuscar)
-  prodABuscar.forEach(producto => {
+inputTextoUtensilio.addEventListener("change", () => {
+  let buscar = inputTextoUtensilio.value.toLowerCase();
+  let prodABuscar = productosDisponibles.filter((producto) =>
+    producto.tipo.includes(buscar)
+  );
+  almacenDeProductosDiv.innerHTML = "";
+  console.log(prodABuscar);
+  prodABuscar.forEach((producto) => {
     almacenDeProductosDiv.innerHTML += `
     <div id="${producto.id}"  class="card "  style="width: 18rem;">
        <div class="card-body ">
@@ -77,80 +70,119 @@ inputTextoUtensilio.addEventListener('change', () => {
              <button onclick= "removerItemCarrito(${producto.id})" type="button" id="botonEliminar${producto.id}" >Eliminas del carrito </button>
         </div> 
     </div>
-    `
-  })
-})
-
-
-
+    `;
+  });
+  
+});
+ 
 function agregarACarrito(productoID) {
-
-
-  let existeProductoEnCarrito = carritoCompra.some(elemento => elemento.producto.id == productoID)
-
+  let existeProductoEnCarrito = carritoCompra.some(
+    (elemento) => elemento.producto.id == productoID
+  );
   if (existeProductoEnCarrito) {
-
-    let indiceProductoCarrito = carritoCompra.findIndex(elemento => elemento.producto.id == productoID)
+    let indiceProductoCarrito = carritoCompra.findIndex(
+      (elemento) => elemento.producto.id == productoID
+    );
     //console.log("INDEX CARRITO COMPRA: " +  indiceProductoCarrito)
-    carritoCompra[indiceProductoCarrito].cant++
+    carritoCompra[indiceProductoCarrito].cant++;
     //console.log("CANTIDAD ACTUALZIADA: " +  carritoCompra[indiceProductoCarrito].cant )
   } else {
-
-    let indiceProducto = productosDisponibles.findIndex(producto => producto.id == productoID)
-
+    let indiceProducto = productosDisponibles.findIndex(
+      (producto) => producto.id == productoID
+    );
     let productoCarrito = {
       producto: productosDisponibles[indiceProducto],
-      cant: 1
-    }
-
-    carritoCompra.push(productoCarrito)
-    console.log(productoCarrito)
-    console.log(carritoCompra)
+      cant: 1,
+    };
+    carritoCompra.push(productoCarrito);
+    // console.log(productoCarrito)
+    //console.log(carritoCompra)
   }
 
-
-  let carritoCompraJson = JSON.stringify(carritoCompra)
-  localStorage.setItem('agregarACarrito', carritoCompraJson)
-
+  let carritoCompraJson = JSON.stringify(carritoCompra);
+  localStorage.setItem("agregarACarrito", carritoCompraJson);
+  offcanvas();
+  Swal.fire({
+    position: 'center-center',
+    icon: 'success',
+    title: 'Agregastes este producto',
+    showConfirmButton: false,
+    timer: 1700
+  })
+  
 }
-
-
 
 function removerItemCarrito(productoID) {
-
-  let eliminarProductoEnCarrito = carritoCompra.some(elemento => elemento.producto.id == productoID)
-
+  let eliminarProductoEnCarrito = carritoCompra.some(
+    (elemento) => elemento.producto.id == productoID
+  );
   if (eliminarProductoEnCarrito) {
-
-    let indiceProductoEliminadoCarrito = carritoCompra.findIndex(elemento => elemento.producto.id == productoID)
+    let indiceProductoEliminadoCarrito = carritoCompra.findIndex(
+      (elemento) => elemento.producto.id == productoID
+    );
     //console.log("INDEX CARRITO COMPRA: " +  indiceProductoEliminadoCarrito)
-    carritoCompra[indiceProductoEliminadoCarrito].cant--
+    carritoCompra[indiceProductoEliminadoCarrito].cant--;
     //console.log("CANTIDAD ACTUALZIADA: " +  carritoCompra[indiceProductoEliminadoCarrito].cant )
   } else {
-
-    let indiceProductoEliminado = productosDisponibles.findIndex(producto => producto.id == productoID)
-
+    let indiceProductoEliminado = productosDisponibles.findIndex(
+      (producto) => producto.id == productoID
+    );
     let productoCarrito = {
       producto: productosDisponibles[indiceProductoEliminado],
-      cant: 1
+      cant: 0,
+    };
 
-    }
-
-    carritoCompra.push(productoCarrito)
-    console.log(productoCarrito)
-    console.log(carritoCompra)
+    carritoCompra.push(productoCarrito);
+    console.log(productoCarrito);
+    console.log(carritoCompra);
   }
 
-
-  let carritoCompraJson = JSON.stringify(carritoCompra)
-  localStorage.setItem('removerItemCarrito', carritoCompraJson)
+  let carritoCompraJson = JSON.stringify(carritoCompra);
+  localStorage.setItem("removerItemCarrito", carritoCompraJson);
+  offcanvas();
+ 
+  let timerInterval
+Swal.fire({
+  title: 'Lo eliminastes',
+  icon: 'question',
+  html: 'ESTE MENSAJE SE ELIMINARA EN  <b></b>.',
+  timer: 2000,
+  timerProgressBar: true,
+  didOpen: () => {
+    Swal.showLoading()
+    const b = Swal.getHtmlContainer().querySelector('b')
+    timerInterval = setInterval(() => {
+      b.textContent = Swal.getTimerLeft()
+    }, 100)
+  },
+  willClose: () => {
+    clearInterval(timerInterval)
+  }
+}).then((result) => {
+  
+  if (result.dismiss === Swal.DismissReason.timer) {
+    console.log('I was closed by the timer')
+  }
+})
 }
 
+function offcanvas() {
+  offcanvasRight.innerHTML = "";
+  productosDisponibles.forEach((producto) => {
+    offcanvasRight.innerHTML += `
+            <div id="${producto.id}" class="card " style="width: 18rem;">
+              <div class="card-body ">
+                  <h2 class="card-title"> ${producto.nombre}</h2>
+                    <h5 class="card-title">${producto.marca} </h5>
+                    <p class="card-text">${producto.utilidad}</p>
+                    <p class="card-text">$${producto.precio}</p>
+                    <p class="card-text">Codigo: ${producto.id}</p>
+                    <button onclick= "agregarACarrito(${producto.id})" type="button" id="botonAgregar${producto.id}" >Agregar al carrito </button>
+                    <button onclick= "removerItemCarrito(${producto.id})" type="button" id="botonEliminar${producto.id}" >Eliminas del carrito </button>
+                </div> 
+            </div>
+              `;
+  });
+}
 
-
-
-  mostrarProducutos();
-
-
-
-
+mostrarProducutos();
