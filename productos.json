@@ -1,0 +1,92 @@
+[
+    {
+      "id": 1,
+      "nombre": "Sierra",
+      "precio": 1000,
+      "marca":  "Boker",
+      "stock": 10 ,
+      "uso": "Panaderia",
+      "imagen": "./images/Sierra.jpg"
+    },
+    {
+      "id": 2,
+      "nombre": "Deshuesador",
+      "precio": 1500,
+      "marca":  "Boker",
+      "stock": 10 ,
+      "uso": "Carniceria",
+      "imagen": "./images/Deshuesador.jpg"
+    },
+    {
+      "id": 3,
+      "nombre": "Santoku",
+      "precio": 1900,
+      "marca":  "Boker",
+      "stock": 10 ,
+      "uso": "Fileteado de pescados",
+      "imagen": "./images/Santoku.jpg"
+    },
+    {
+      "id": 4,
+      "nombre": "Nakiri",
+      "precio": 2000,
+      "marca":  "Arbolito",
+      "stock": 10 ,
+      "uso": "Corte de verduras",
+      "imagen": "./images/Nakiri.jfif"
+    },
+    {
+      "id": 5,
+      "nombre": "Oficio",
+      "precio": 500,
+      "marca":  "Boker",
+      "stock": 10 ,
+      "uso": "Cuchillo para pelear o tornear",
+      "imagen": "./images/Oficio.jpg"
+    },
+    {
+      "id": 6,
+      "nombre": "Abreostras",
+      "precio": 700,
+      "marca":  "3 Claveles",
+      "stock": 10 ,
+      "uso": "Para abrir ostras de forma segura",
+      "imagen": "./images/Abreostras.jpg"
+    },
+    {
+      "id": 7,
+      "nombre": "Espatula de codo",
+      "precio": 800,
+      "marca":  "3 Claveles",
+      "stock": 10 ,
+      "uso": "Para la pasteleria",
+      "imagen": "./images/Espatula de codo.jpg"
+    },
+    {
+      "id": 8,
+      "nombre": "Miserable",
+      "precio": 1200,
+      "marca":  "Hudson",
+      "stock": 10 ,
+      "uso": "Espatula de silicona para la pasteleria",
+      "imagen": "./images/Miserable.jfif"
+    },
+    {
+      "id": 9,
+      "nombre": "Batidor",
+      "precio": 850,
+      "marca":  "Hudson",
+      "stock": 10 ,
+      "uso": "Para mesclar preparaciones",
+      "imagen": "./images/Batidor.jpg"
+    },
+    {
+      "id": 10,
+      "nombre": "Cornet metalico",
+      "precio": 730,
+      "marca":  "universal",
+      "stock": 10 ,
+      "uso": "Para la panaderia",
+      "imagen": "./images/Cornet metalico.jpg"
+    }
+  ]
